@@ -1,7 +1,8 @@
 ```mermaid
 classDiagram
-  class Instrumento {
 
+  class Instrumento {
+   
 
 }
 
