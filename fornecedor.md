@@ -5,6 +5,6 @@ classDiagram
         -string nome
         -string cnpj
         -string contato
-        +fornecerProduto
+        +fornecerProduto(qnt: int) void
  }
 ``` 
