@@ -4,6 +4,6 @@ classDiagram
         -int id
         -date data
         -string status
-        +atualizarstatus(int) void
+        +atualizarStatus(int) void
 }
 ```
