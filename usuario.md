@@ -3,7 +3,7 @@ classDiagram
 direction TB
 
 class Usuario {
-  -String id
+  -String cpf
   -String nome
   -String email
   +Usuario(String id, String nome, String email)
