@@ -3,7 +3,7 @@ classDiagram
  class Pedido {
         -int id
         -date data
-        +string status
-        +atualizarPedido(qnt: int) void
+        -string status
+        +atualizarstatus(int) void
 }
 ```
