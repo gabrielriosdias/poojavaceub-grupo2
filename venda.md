@@ -4,6 +4,7 @@ classDiagram
         -int id
         -date data
         -float valorTotal
+        -int boleto
         +criarBoleto (int) void
  }
 ```
