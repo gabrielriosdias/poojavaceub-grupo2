@@ -1,0 +1,94 @@
+package view;
+case 2 -> listar();
+case 3 -> buscarPorId();
+case 4 -> atualizar();
+case 5 -> excluir();
+}
+} while (opcao != 0);
+}
+
+
+// tornar public para atalho do menu principal
+public void cadastrar() {
+System.out.print("Nome: ");
+String nome = sc.nextLine();
+System.out.print("Salário: ");
+double salario = lerDoubleComTratamento();
+sc.nextLine();
+System.out.print("Matrícula: ");
+String matricula = sc.nextLine();
+
+
+Funcionario f = repo.adicionar(new Funcionario(nome, salario, matricula));
+System.out.println("Funcionário cadastrado com ID " + f.getId());
+}
+
+
+private double lerDoubleComTratamento() {
+while (!sc.hasNextDouble()) {
+System.out.print("Valor inválido. Digite um número (ex: 2500.50): ");
+sc.next();
+}
+return sc.nextDouble();
+}
+
+
+private void listar() {
+if (repo.listar().isEmpty()) {
+System.out.println("Nenhum funcionário cadastrado.");
+return;
+}
+for (Funcionario f : repo.listar()) {
+System.out.println(f);
+}
+}
+
+
+private void buscarPorId() {
+System.out.print("ID: ");
+int id = sc.nextInt();
+Funcionario f = repo.buscarPorId(id);
+System.out.println(f != null ? f : "ID não encontrado!");
+}
+
+
+private void atualizar() {
+System.out.print("ID: ");
+int id = sc.nextInt();
+sc.nextLine();
+System.out.print("Novo nome: ");
+String nome = sc.nextLine();
+System.out.print("Novo salário: ");
+double salario = lerDoubleComTratamento();
+sc.nextLine();
+System.out.print("Nova matrícula: ");
+String matricula = sc.nextLine();
+
+
+boolean ok = repo.atualizar(id, nome, salario, matricula);
+System.out.println(ok ? "Atualizado com sucesso!" : "ID não encontrado!");
+}
+
+
+private void excluir() {
+System.out.print("ID: ");
+int id = sc.nextInt();
+boolean ok = repo.removerPorId(id);
+System.out.println(ok ? "Excluído com sucesso!" : "ID não encontrado!");
+}
+}
+package view;
+
+
+import java.util.Scanner;
+import repository.ProdutoRepositoryMemoria;
+import model.Produto;
+
+
+public class MenuProduto {
+private ProdutoRepositoryMemoria repo;
+private Scanner sc;
+
+
+public MenuProduto(ProdutoRepositoryMemoria repo, Scanner sc) {
+this.rep

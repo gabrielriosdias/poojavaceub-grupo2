@@ -1,1 +1,15 @@
-
+src/
+ ├── Main.java
+ ├── model/
+ │    ├── Funcionario.java
+ │    ├── Produto.java
+ │    └── Cliente.java
+ ├── repository/
+ │    ├── FuncionarioRepositoryMemoria.java
+ │    ├── ProdutoRepositoryMemoria.java
+ │    └── ClienteRepositoryMemoria.java
+ └── view/
+      ├── MenuPrincipal.java
+      ├── MenuFuncionario.java
+      ├── MenuProduto.java
+      └── MenuCliente.java

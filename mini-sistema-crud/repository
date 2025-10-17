@@ -1,0 +1,153 @@
+package repository;
+
+import java.util.ArrayList;
+import model.Funcionario;
+
+public class FuncionarioRepositoryMemoria {
+    private ArrayList<Funcionario> funcionarios = new ArrayList<>();
+    private int proximoId = 1;
+
+    public Funcionario adicionar(Funcionario f) {
+        f.setId(proximoId++);
+        funcionarios.add(f);
+        return f;
+    }
+
+    public ArrayList<Funcionario> listar() {
+        return funcionarios;
+    }
+
+    public Funcionario buscarPorId(int id) {
+        for (Funcionario f : funcionarios) {
+            if (f.getId() == id) return f;
+        }
+        return null;
+    }
+
+    public boolean atualizar(int id, String nome, double salario, String matricula) {
+        Funcionario f = buscarPorId(id);
+        if (f != null) {
+            f.setNome(nome);
+            f.setSalario(salario);
+            f.setMatricula(matricula);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removerPorId(int id) {
+        Funcionario f = buscarPorId(id);
+        if (f != null) {
+            funcionarios.remove(f);
+            return true;
+        }
+        return false;
+    }
+}
+
+package repository;
+
+
+import java.util.ArrayList;
+import model.Produto;
+
+
+public class ProdutoRepositoryMemoria {
+private ArrayList<Produto> produtos = new ArrayList<>();
+private int proximoId = 1;
+
+
+public Produto adicionar(Produto p) {
+p.setId(proximoId++);
+produtos.add(p);
+return p;
+}
+
+
+public ArrayList<Produto> listar() {
+return produtos;
+}
+
+
+public Produto buscarPorId(int id) {
+for (Produto p : produtos) {
+if (p.getId() == id) return p;
+}
+return null;
+}
+
+
+public boolean atualizar(int id, String nome, double preco, int quantidade) {
+Produto p = buscarPorId(id);
+if (p != null) {
+p.setNome(nome);
+p.setPreco(preco);
+p.setQuantidadeEmEstoque(quantidade);
+return true;
+}
+return false;
+}
+
+
+public boolean removerPorId(int id) {
+Produto p = buscarPorId(id);
+if (p != null) {
+produtos.remove(p);
+return true;
+}
+return false;
+}
+}
+package repository;
+
+
+import java.util.ArrayList;
+import model.Cliente;
+
+
+public class ClienteRepositoryMemoria {
+private ArrayList<Cliente> clientes = new ArrayList<>();
+private int proximoId = 1;
+
+
+public Cliente adicionar(Cliente c) {
+c.setId(proximoId++);
+clientes.add(c);
+return c;
+}
+
+
+public ArrayList<Cliente> listar() {
+return clientes;
+}
+
+
+public Cliente buscarPorId(int id) {
+for (Cliente c : clientes) {
+if (c.getId() == id) return c;
+}
+return null;
+}
+
+
+public boolean atualizar(int id, String nome, String telefone, String email) {
+Cliente c = buscarPorId(id);
+if (c != null) {
+c.setNome(nome);
+c.setTelefone(telefone);
+c.setEmail(email);
+return true;
+}
+return false;
+}
+
+
+public boolean removerPorId(int id) {
+Cliente c = buscarPorId(id);
+if (c != null) {
+clientes.remove(c);
+return true;
+}
+return false;
+}
+}
